@@ -68,81 +68,6 @@ class LinkedList {
     this.size--;
     return removedValue;
   }
-  insert(value, index) {
-    if (index < 0 || index > this.size) return;
-    if (index === 0) {
-      this.prepend(value);
-    } else {
-      const node = new Node(value);
-      let curr = this.head;
-      let currIndex = 0;
-      while (currIndex < index - 1) {
-        curr = curr.next;
-        currIndex++;
-      }
-      node.next = curr.next;
-      curr.next = node;
-      this.size++;
-    }
-  }
-  removeFrom(index) {
-    if (index < 0 || index >= this.size) return null;
-    let removedNode;
-    //removing head node is O(1)
-    //removing a node in general is O(n)
-    if (index === 0) {
-      removedNode = this.head;
-      this.head = this.head.next;
-    } else {
-      let curr = this.head;
-      let currIndex = 0;
-      while (currIndex < index - 1) {
-        curr = curr.next;
-        currIndex++;
-      }
-      removedNode = curr.next;
-      curr.next = removedNode.next;
-    }
-    this.size--;
-    return removedNode.value;
-  }
-  removeValue(value) {
-    if (this.isEmpty()) return null;
-    //removing head node is O(1)
-    //removing a node in general is O(n)
-    if (this.head.value === value) {
-      this.head = this.head.next;
-      this.size--;
-      return value;
-    } else {
-      let curr = this.head;
-      while (curr.next !== null && curr.next.value !== value) {
-        curr = curr.next;
-      }
-      //if while loop exits, one of two things happened
-      //1)pointer has stopped at node previous to the node that has to be removed (so there exists a node that has to be removed)
-      if (curr.next !== null) {
-        const removedNode = curr.next;
-        curr.next = removedNode.next;
-        this.size--;
-        return removedNode.value;
-      } else {
-        return null;
-      }
-    }
-  }
-  search(value) {
-    if (this.isEmpty()) return -1;
-
-    let currIndex = 0;
-    let curr = this.head;
-    while (curr) {
-      if (curr.value === value) return currIndex;
-      curr = curr.next;
-      currIndex++;
-    }
-    return -1;
-  }
   reverse() {
     let prev = null;
     let curr = this.head;
@@ -153,6 +78,7 @@ class LinkedList {
       prev = curr;
       curr = next;
     }
+    this.tail = this.head;
     this.head = prev;
   }
   print() {
