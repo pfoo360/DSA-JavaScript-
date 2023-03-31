@@ -5,11 +5,12 @@
 //    min heap: parent nodes less than or equal to children
 //all heaps must be trees- no cycles
 //used in
-//    certain implementation of Dijkstra's shortest path algorithm
+//    certain implementation of Dijkstra's Shortest Path algorithm
 //    when you need to dynamically fetch the next best element
+//    K'th Largest Element in an array
 //    in Huffman coding (often used for lossless data compression)
 //    best first search algorithms (such as A*)
-//    used in Minimum Spanning Tree algorithms
+//    used in Minimum Spanning Tree algorithms (Prim's)
 //priority queues typically implemented with heaps
 //    gives best possible time complexity
 //binary heap: binary tree that supports the heap invariant
@@ -101,7 +102,7 @@ class MinHeap{
   }
   deleteKey(index){
     //O(logN)
-    
+
     if(index > this.heap.length - 1) return
 
     this.decreaseKey(index, this.heap[0]-1)
