@@ -24,12 +24,14 @@ class MinHeap{
     console.log(this.heap)
   }
   peek(){
+    //O(1)
     return this.heap[0]
   }
   insert(value){
+    //O(logN)
+
     this.heap.push(value)
 
-    
     //used to fix min heap property
     //perform swap between parent and child if parent is greater than child
     let i = this.heap.length -1
@@ -43,6 +45,8 @@ class MinHeap{
     }
   }
   poll(){
+    //O(logN)
+
     if(this.heap.length === 1) return this.heap.pop()
 
     let res = this.heap[0]
@@ -54,6 +58,8 @@ class MinHeap{
   }
   //sink
   minHeapify(index){
+    //O(logN)
+
     if(this.heap.length === 1) return
 
     let left = (index*2)+1
@@ -76,6 +82,7 @@ class MinHeap{
 
   }
   decreaseKey(i, newValue){
+    //O(logN)
     if(i > this.heap.length - 1) return
     if(this.heap[i] <= newValue) return
 
@@ -93,6 +100,8 @@ class MinHeap{
     }
   }
   deleteKey(index){
+    //O(logN)
+    
     if(index > this.heap.length - 1) return
 
     this.decreaseKey(index, this.heap[0]-1)
