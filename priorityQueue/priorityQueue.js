@@ -134,14 +134,44 @@ minHeap.insert(15);
 minHeap.insert(3);
 minHeap.insert(10);
 minHeap.display();
+// [
+//   1,  5,  1,  8, 6, 2,
+//   2, 13, 12, 11, 7, 2,
+//  15,  3, 10
+// ]
 //console.log(minHeap.peek())
-console.log(minHeap.poll());
+console.log(minHeap.poll()); //1
 minHeap.display();
-console.log(minHeap.poll());
+// [
+//   1,  5,  2,  8, 6,  2,
+//   2, 13, 12, 11, 7, 10,
+//  15,  3
+// ]
+console.log(minHeap.poll()); //1
 minHeap.display();
+//[
+//   2,  5,  2,  8, 6,  3,
+//   2, 13, 12, 11, 7, 10,
+//  15
+// ]
 minHeap.decreaseKey(6, 0);
 minHeap.display();
+// [
+//   0,  5,  2,  8, 6,  3,
+//   2, 13, 12, 11, 7, 10,
+//  15
+// ]
 minHeap.deleteKey(12);
 minHeap.display();
+// [
+//   0,  5,  2,  8,  6,
+//   3,  2, 13, 12, 11,
+//   7, 10
+// ]
 minHeap.deleteKey(4);
 minHeap.display();
+// [
+//   0, 5,  2,  8,  7,
+//   3, 2, 13, 12, 11,
+//  10
+// ]
