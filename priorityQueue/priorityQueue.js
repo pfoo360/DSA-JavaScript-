@@ -67,7 +67,7 @@ class MinHeap {
 
     let left = index * 2 + 1;
     let right = index * 2 + 2;
-    if (left > this.heap.length || right > this.heap.length) return;
+    if (left >= this.heap.length || right >= this.heap.length) return;
 
     if (
       this.heap[index] > this.heap[left] &&
