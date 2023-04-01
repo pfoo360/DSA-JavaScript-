@@ -19,12 +19,10 @@ class WeightedGraph {
     this.adjacencyList[vertex2].push({ node: vertex1, weight });
   }
   display() {
-    //O(n);
     for (let vertex in this.adjacencyList) {
       console.log(vertex, "->", [...this.adjacencyList[vertex]]);
     }
 
-    // //O(mn)
     // for (let vertex1 in this.adjacencyList) {
     //   this.adjacencyList[vertex1].forEach((vertex2) => {
     //     console.log(vertex1, "->", vertex2);
@@ -32,7 +30,6 @@ class WeightedGraph {
     // }
   }
   removeEdge(vertex1, vertex2) {
-    //O(n)
     this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
       (v) => v.node !== vertex2
     );
