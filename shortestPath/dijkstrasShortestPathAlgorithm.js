@@ -171,12 +171,16 @@ const dijkstra = () => {
 
     //iterate over all edges outwards from the current node
     graph.adjacencyList[node.to].forEach((edge) => {
+      //perform edge relaxation operation
+
       //calculate the total distance from current node to next node
+      //compute the distance to te new node by adding the best distance from the start node to the current node (found in 'dist' array) plus the edge cost of getting to the next node
       const totalDistance = dist[node.to] + edge.weight;
 
-      //if the total distace to next node is the best distance (cost less) then replace it in the dist array
+      //compare the totalDistance against the best distance for the next node
+      //if the totalDistace to next node is the best distance (cost less) then replace it in the dist array
       //also add this to the priority queue
-      //every time we find a better distance we insert that information into the priority queue
+      //every time we find a better distance we insert that information into the priority queue so we visit that node in the future
       if (dist[edge.to] > totalDistance) {
         dist[edge.to] = totalDistance;
         priorityQueue.insert({ to: edge.to, weight: totalDistance });
