@@ -154,10 +154,16 @@ const dijkstra = () => {
   while (!priorityQueue.isEmpty()) {
     //pull out the next most promising (smallest weight) entry from PQ
     const node = priorityQueue.poll();
-    //console.log(node)
+    //console.log(node);
 
+    //iterate over all edges outwards from the current node
     graph.adjacencyList[node.to].forEach((edge) => {
+      //calculate the total distance from current node to next node
       const totalDistance = dist[node.to] + edge.weight;
+
+      //if the total distace to next node is the best distance (cost less) then replace it in the dist array
+      //also add this to the priority queue
+      //every time we find a better distance we insert that information into the priority queue
       if (dist[edge.to] > totalDistance) {
         dist[edge.to] = totalDistance;
         priorityQueue.insert({ to: edge.to, weight: totalDistance });
