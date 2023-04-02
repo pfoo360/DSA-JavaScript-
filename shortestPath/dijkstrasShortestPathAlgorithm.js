@@ -132,8 +132,7 @@ const createGraph = () => {
   return graph;
 };
 
-//main = lazy Dijkstra's
-const main = () => {
+const dijkstra = () => {
   const graph = createGraph();
   //maintain a 'dist' array where the distance to very node is positive infinity
   const dist = [];
@@ -167,7 +166,7 @@ const main = () => {
     //console.log("updatedDistArr", dist);
     //priorityQueue.display();
   }
-  console.log(dist);
+  console.log(dist); //[ 0, 3, 1, 4, 7 ]
 };
 
-main();
+dijkstra();
