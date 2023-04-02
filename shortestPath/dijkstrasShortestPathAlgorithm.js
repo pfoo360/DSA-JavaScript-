@@ -167,7 +167,11 @@ const dijkstra = () => {
   while (!priorityQueue.isEmpty()) {
     //pull out the next most promising (smallest weight) entry from PQ
     const node = priorityQueue.poll();
-    //console.log(node);
+    console.log(node);
+
+    //an optimization that ignores stale (index,weight) pairs in our PQ
+    //skip nodes where we already found a better path routing through other nodes before we got to processing this node
+    if (dist[node.to] < node.weight) continue;
 
     //iterate over all edges outwards from the current node
     graph.adjacencyList[node.to].forEach((edge) => {
