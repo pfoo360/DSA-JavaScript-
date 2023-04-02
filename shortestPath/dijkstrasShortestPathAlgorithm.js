@@ -1,3 +1,16 @@
+//Dijkstra's algorithm is a Single Source Shortest Path algorithm for graphs with non-negative weighted edges
+//    means you need to specify a starting node for the algorithm
+//    means Dijkstra's can tell you the shortest path between starting node and all other nodes in the graph
+//    non-negative edge weights is imposed to ensure that once a node has been visisted its optimal distance canNOT be improved
+//    non-negative edge weights enables Dijkstra's to act in a greedy manner- always selects the next most promising node
+//time complexity is typically O(E*log(V))
+//    competitive against other shortest path algorithms
+//algorithm overview
+//    maintain a 'dist' array where the distance to every node is positive infinity. Mark the distance to the start node 's' to be 0.
+//    maintain a PQ of key-value pairs of (node_index, distance_weight) which tell you which node to visit next based on the sorted min weight value
+//    insert (s, 0) into the PQ and loop while PQ is not empty, pulling out the next promising value
+//    iternate over all edges outwards from the current node and relax each edge, appending new key-value pair to the PQ for every relaxation
+
 class MinHeap {
   constructor() {
     this.heap = [];
