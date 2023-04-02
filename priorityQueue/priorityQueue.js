@@ -67,26 +67,20 @@ class MinHeap {
 
     let left = index * 2 + 1;
     let right = index * 2 + 2;
-    if (left >= this.heap.length || right >= this.heap.length) return;
 
-    if (
-      this.heap[index] > this.heap[left] &&
-      this.heap[left] <= this.heap[right]
-    ) {
+    let smallest = index;
+
+    if (left < this.heap.length && this.heap[index] > this.heap[left]) {
+      smallest = left;
+    }
+    if (right < this.heap.length && this.heap[smallest] > this.heap[right]) {
+      smallest = right;
+    }
+    if (smallest !== index) {
       let temp = this.heap[index];
-      this.heap[index] = this.heap[left];
-      this.heap[left] = temp;
-
-      this.minHeapify(left);
-    } else if (
-      this.heap[index] > this.heap[right] &&
-      this.heap[right] < this.heap[left]
-    ) {
-      let temp = this.heap[index];
-      this.heap[index] = this.heap[right];
-      this.heap[right] = temp;
-
-      this.minHeapify(right);
+      this.heap[index] = this.heap[smallest];
+      this.heap[smallest] = temp;
+      this.minHeapify(smallest);
     }
   }
   decreaseKey(i, newValue) {
